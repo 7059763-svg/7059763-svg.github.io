@@ -38,21 +38,14 @@ h2 {
   gap: 12px;
 }
   
-  h2 {
+ h2 {
   margin: 0;
   font-size: clamp(4rem, 10vw, 7rem);
-  line-height: 0.9;h2 {
-  color: #f3b2bdf5; /* bright accent */
-}
-
-.content p {
-  color: #f1d0ef;
-}
-
+  line-height: 0.9;
   font-weight: 900;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #eae2eb;
+  color: #00000000;
 }
 
 .content > p {
@@ -62,7 +55,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   line-height: 1.4;
-}
+} 
 
 #interests {
   margin-top: 32px;
@@ -145,7 +138,7 @@ nav h1 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #f3c2fd;
+  color: #dba8e2;
 }
 
 #nav-ul {
@@ -166,26 +159,9 @@ nav h1 {
   transition:
     background 0.25s ease,
     color 0.25s ease;
-}
 
+}
 .nav-li a:hover {
-  background: #e7aeec;
-  color: #f111ae;
-}
-nav {
-  background: #f07ad6;
-  border-color: #df92d8;
-}
-
-nav h1 {
-  color: #e9afdf;
-}
-
-.nav-li a {
-  color: #f0a4df;
-}
-
-.nav-li a:hover {
-  background: #e6c4e3;
-  color: #eab0f1;
+  background: #bd8eba;
+  color: #fff;
 }
