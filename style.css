@@ -132,7 +132,7 @@ nav h1 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: #e0abe7;
+  color: #ad6ab6;
 }
 
 #nav-ul {
@@ -162,6 +162,9 @@ nav h1 {
 /* Portfolio styles */
 .content h1 {
   color: rgb(223, 130, 218);
+}
+.content h3 {
+  color:#c07eb5
 }
 
 #portfolio {
