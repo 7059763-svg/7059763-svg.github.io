@@ -42,12 +42,18 @@ createPlatform(300, 300, 150, 10, "hotpink");
 createPlatform(1100, 400, 230, 10, "hotpink" );
 
     // TODO 3 - Create Collectables
+createCollectable("steve", 400, 200);
+createCollectable("diamond", 200, 170, 0.5, 0.7);
+createCollectable("diamond",900, 400);
+createCollectable("grace",1200 ,350);
 
 
 
     
     // TODO 4 - Create Cannons
-
+createCannon("top", 200, 1000);
+createCannon("right", 300, 2000);
+createCannon("bottom", 750,1000)
 
     
     
