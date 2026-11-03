@@ -16,33 +16,24 @@ var init = function (window) {
     ///////////////////
     // PROGRAM SETUP //
     ///////////////////
-
+   
     // TODO 1 : Declare and initialize our variables
     var circles = [];
 
     // TODO 2 : Create a function that draws a circle
     function drawCircle() {
-      Gamification.init({
-    canvas: canvas,
-    view: view,
-    draw: draw,
-    physikz: physikz,
-    circles: circles,
-    game: game
-});
       var circle = draw.randomCircleInArea(canvas, true, true, "#fda4a4", 2);
       physikz.addRandomVelocity(circle, canvas, 5, 5);
       view.addChild(circle);
       circles.push(circle);
     }
-   
 
     // TODO 3 : Call the drawCircle() function
-    drawCircle();
-    drawCircle();
-    drawCircle();
-    drawCircle();
-    drawCircle();
+    // drawCircle();
+    // drawCircle();
+    // drawCircle();
+    // drawCircle();
+    // drawCircle();
 
     // TODO 7 : Use a loop to create multiple circles
     for (var i = 0; i < 50; i++) {
@@ -71,58 +62,57 @@ var init = function (window) {
       //   game.checkCirclePosition(circles[2]);
       //   game.checkCirclePosition(circles[3]);
       //   game.checkCirclePosition(circles[4]);
-    
-    // TODO 8 / TODO 9 : Iterate over the array
-    for (var i = 0; i < circles.length; i++) {
-      physikz.updatePosition(circles[i]);
-      game.checkCirclePosition(circles[i]);
+
+      // TODO 8 / TODO 9 : Iterate over the array
+      for (var i = 0; i < circles.length; i++) {
+        physikz.updatePosition(circles[i]);
+        game.checkCirclePosition(circles[i]);
+      }
     }
-    Gamification.update();
-}
-      
-  /* 
+
+    /* 
         This Function should check the position of a circle that is passed to the 
         Function. If that circle drifts off the screen, this Function should move
         it to the opposite side of the screen.
         */
-  game.checkCirclePosition = function (circle) {
-    // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-    if (circle.x > canvas.width) {
-      circle.x = 0;
-    }
+    game.checkCirclePosition = function (circle) {
+      // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
+      if (circle.x > canvas.width) {
+        circle.x = 0;
+      }
 
-    // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-    if (circle.x < 0) {
-      circle.x = canvas.width;
-    } else if (circle.y < 0) {
-      circle.y = canvas.height;
-    } else if (circle.y > canvas.height) {
-      circle.y = 0;
-    }
+      // TODO 6 : YOUR CODE STARTS HERE //////////////////////
+      if (circle.x < 0) {
+        circle.x = canvas.width;
+      } else if (circle.y < 0) {
+        circle.y = canvas.height;
+      } else if (circle.y > canvas.height) {
+        circle.y = 0;
+      }
 
-    // YOUR TODO 6 CODE ENDS HERE //////////////////////////
+      // YOUR TODO 6 CODE ENDS HERE //////////////////////////
+    };
+
+    /////////////////////////////////////////////////////////////
+    // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
+    /////////////////////////////////////////////////////////////
+
+    view.addChild(fps);
+    app.addUpdateable(fps);
+
+    game.circles = circles;
+    game.drawCircle = drawCircle;
+    game.update = update;
+
+    app.addUpdateable(window.opspark.game);
   };
 
-  /////////////////////////////////////////////////////////////
-  // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
-  /////////////////////////////////////////////////////////////
-
-  view.addChild(fps);
-  app.addUpdateable(fps);
-
-  game.circles = circles;
-  game.drawCircle = drawCircle;
-  game.update = update;
-
-  app.addUpdateable(window.opspark.game);
+  // DO NOT REMOVE THIS CODE //////////////////////////////////////////////////////
+  if (
+    typeof process !== "undefined" &&
+    typeof process.versions.node !== "undefined"
+  ) {
+    // here, export any references you need for tests //
+    module.exports = init;
+  }
 };
-
-// DO NOT REMOVE THIS CODE //////////////////////////////////////////////////////
-if (
-  typeof process !== "undefined" &&
-  typeof process.versions.node !== "undefined"
-) {
-  // here, export any references you need for tests //
-  module.exports = init;
-}
-}
